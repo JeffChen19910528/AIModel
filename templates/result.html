@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result</title>
+</head>
+<body>
+  <h1>Result</h1>
+  <p>The image is classified as: {{ result }}</p>
+  <ul>
+    {% for imagenet_id, label, score in predictions %}
+      <li>{{ label }}: {{ score }}</li>
+    {% endfor %}
+  </ul>
+  <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+  <br>
+  <a href="{{ url_for('upload_file') }}">Upload another image</a>
+</body>
+</html>
